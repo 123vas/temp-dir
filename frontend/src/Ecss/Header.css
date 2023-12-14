@@ -1,0 +1,132 @@
+.navbar {
+    background-color: #363434;
+    overflow: hidden;
+    margin-top: 27px;
+}
+
+
+.navbar a {
+    float: right;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.headerH {
+    background-color: white;
+    padding: 10px;
+    text-align: center;
+    display: block;
+}
+
+.navbar_top {
+    background-color: white;
+    border-bottom: 1px solid #ddd;
+    overflow: hidden;
+}
+
+.navbar_top a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+
+
+#images {
+    margin-bottom: 10px;
+} 
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 5px;
+}
+
+.header {
+    background-color: white;
+    text-align: center;
+    display: flex;
+/* justify-content: space-evenly; */
+}
+.ministry_of_coal {
+    color: black; 
+    padding: 10px; 
+    text-align: center; 
+    font-size: 3rem; 
+    font-weight: bold; 
+    display:flex;
+    font-family: 'Arial', sans-serif;
+}
+.logo {
+ 
+    margin: 5px;
+}
+
+#logo1 {
+    width: 100px;
+    height: 130px;
+    padding-right:27%;
+    display:flex;
+}
+
+#logo2 {
+    width: 100px;
+    height: 130px;
+    padding-left:30%;
+    display:flex;
+    float: right;
+    margin-top: 5px;
+}
+h2{
+    padding-top: 20px;
+}
+/* Existing CSS for larger screens */
+
+@media screen and (max-width: 768px) {
+    .navbar {
+      margin-top: 10px; /* Adjust margin for smaller screens */
+    }
+  
+    .navbar a {
+      float: none; /* Remove float for responsiveness */
+      display: block;
+      text-align: center;
+      padding: 10px 12px; /* Adjust padding for smaller screens */
+      margin-bottom: 5px; /* Add space between navbar links */
+    }
+  
+    .header {
+      padding: 8px; /* Adjust padding for smaller screens */
+    }
+  
+    .navbar_top {
+      border-bottom: none; /* Remove border for smaller screens */
+    }
+  
+    .ministry_of_coal {
+      font-size: 2rem; /* Adjust font size for smaller screens */
+      padding: 5px; /* Adjust padding for smaller screens */
+    }
+  
+    #logo1, #logo2 {
+      width: 80px; /* Adjust logo width for smaller screens */
+      height: 100px; /* Adjust logo height for smaller screens */
+      padding: 0; /* Reset padding */
+      margin: 5px; /* Add margin for spacing */
+    }
+  
+    #logo1 {
+      padding-right: 0; /* Remove padding for smaller screens */
+    }
+  
+    #logo2 {
+      padding-left: 0; /* Remove padding for smaller screens */
+    }
+  }
+  

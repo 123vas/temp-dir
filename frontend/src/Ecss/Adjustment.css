@@ -1,0 +1,348 @@
+* {
+  margin: 0;
+  padding: 0;
+  /* box-sizing: border-box; */
+}
+
+html {
+  font-family: 'Nunito', sans-serif;
+  font-size: 18px;
+  color: #fff;
+}
+.data{
+  box-sizing: border-box;
+  width: fit-content;
+}
+.user {
+  height: 43px;
+  border-radius: 7px;
+  width: 263px;
+  border: 2px solid black;
+  margin-top: 8px;
+}
+
+.detail{
+  padding-top:30px;
+  display:flex;
+/* justify-content:center; */
+  color: #000;
+  background-color:rgb(234, 255, 0);
+  height:50px;
+  width:102%;
+}
+.detail p{
+  display:inline;
+  margin-right: auto;
+  /* padding-top:7px; */
+  padding-left:5px;
+}
+.detail h4{
+  margin-right: auto;
+  margin-left: auto;
+  font-weight: bolder;
+  display:inline;
+ 
+  justify-content:space-around;
+}
+.f{
+  margin-bottom:10% ;
+}
+.Aform{
+  margin-top:30px ;
+  border-radius:10px;
+  color: #000;
+  width:1000px;
+  justify-content:space-evenly;
+  height:60px;
+  margin-left:585px;
+  display:flex;
+  flex-direction:row;
+}
+form1{
+  justify-content:space-evenly;
+  margin-top:90px ;
+  border-radius:10px;
+  color: #000;
+  width:1100px;
+  height:60px;
+  margin-left:508px;
+  display:flex;
+}
+form2{
+  justify-content:space-evenly;
+  width: fit-content;
+  margin-left:63%;
+  margin-top: 30px;
+  color: #000;
+  
+  display:flex;
+  padding-bottom:10px;
+}
+.h{
+  height: 30px;
+  padding-top: 10px;
+  border-radius: 7px;
+  width: 175px;
+  border: 2px solid black;
+  background-color: white;
+  padding-left: 90px;
+  margin-top: 8px;
+}
+.cont{
+  margin-top:15px;
+  display: flex;
+  float: left;
+  flex-direction: column;
+  background-color:#000;
+  width: 30%;
+  height:360px;
+}
+
+.Ainput[type="text"],
+.Ainput[type="password"],
+.Abutton,
+.Atextarea {
+  margin-top: 10px;
+  height:30px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 22px;
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+}
+
+.Alabel,
+.Abutton {
+    font-weight:bolder;
+  margin-top: 1rem; 
+  padding-left:20px;
+}
+
+.Abutton {
+  border: #000;
+  border-style:solid;
+  height: 50px;
+  padding: 0.5rem;
+}
+.Ainput{
+  width:250px;
+}
+
+.instructions {
+    font-size: 0.75rem;
+    border-radius: 0.5rem;
+    background: #000;
+    color: #fff;
+    padding: 0.25rem;
+    position: relative;
+    bottom: -10px;
+}
+
+.instructions > svg {
+    margin-right: 0.25rem;
+}
+
+.offscreen {
+    position: absolute;
+    left: -9999px;
+}
+
+.hide {
+    display: none;
+}
+
+.valid {
+    color: limegreen;
+    margin-left: 0.25rem;
+}
+
+.invalid {
+    color: red;
+    margin-left: 0.25rem;
+}
+
+.errmsg {
+    background-color: lightpink;
+    color: firebrick;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.footer {
+    background-color: black;
+    color: #fff;
+
+margin-top: 40px;    position:relative;
+    width: 100%;
+
+  } 
+  
+  .footer-content {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding-left: 30px;
+  }
+  
+  .footer-section {
+    flex: 1 1 30%;
+    
+  }
+  .footer-section1 {
+    padding-right: 30px;
+    
+  }
+  .footer-section1 h3 {
+    font-size: 20px;
+    font-weight:1000px;
+    
+  }
+  
+  .footer-section h3 {
+    font-size: 20px;
+    font-weight:1000px;
+    
+  }
+  
+  .footer-section p {
+    font-size: 18px;
+    line-height: 1.6;
+  }
+ 
+
+/* Your existing styles */
+
+/* Responsive adjustments for a maximum width of 768px */
+@media screen and (max-width: 768px) {
+  /* Modify styles for various elements */
+  html {
+    font-size: 16px; /* Example: reducing font size for smaller screens */
+  }
+.h {
+  width: 100%; /* Adjust width to 100% for smaller screens */
+  padding-left: 20px; /* Modify padding for smaller screens */
+  /* Adjust other properties as needed for responsiveness */
+}
+  .data,
+  .user {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .detail {
+    padding-top: 20px; /* Adjust padding for the detail section */
+    height: auto; /* Let the height adjust based on content */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .detail p{
+    padding: 10px;
+    padding-left: 150px;
+  }
+
+  .Aform,
+  form1,
+  form2 {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+  }
+
+  .cont {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .Ainput[type="text"],
+  .Ainput[type="password"],
+  .Abutton,
+  .Atextarea {
+    width: 100%;
+    max-width: 100%;
+  }
+  .footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%; /* Ensure full width */
+  }
+
+  /* Ensure footer content stays in one line */
+  .footer-content {
+    flex-wrap: nowrap; /* Prevent wrapping of content */
+    overflow-x: auto; /* Add horizontal scrolling if necessary */
+  }
+  button{
+    margin-bottom:10%;
+  }
+  /* Additional adjustments for other elements can be added as needed */
+}
+/* Your existing styles */
+/* Your existing styles */
+
+/* Responsive adjustments for pads */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  html {
+    font-size: 16px; /* Adjust font size for pads */
+  }
+
+  .detail {
+    padding-top: 20px; /* Adjust padding for the detail section */
+    height: auto; /* Let the height adjust based on content */
+    width: 111%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .detail p {
+    padding-top: 10px; /* Adjust padding for paragraphs in detail */
+    padding-left: 430px;
+    padding-bottom:10px; /* Modify left padding for paragraphs */
+  }
+.f{
+  margin-top:35%;
+  margin-left:10% ;
+}
+ .Aform,
+  form1,
+  form2 {
+    width: 100%; /* Adjust width to fit pads */
+    max-width: 100%;
+    margin-left: 0;
+  }
+
+  .Acont {
+    width: 100%; /* Adjust width to fit pads */
+    max-width: 100%;
+    height: auto;
+  }
+
+  .Ainput[type="text"],
+  .Ainput[type="password"],
+  .Abutton,
+  .Atextarea {
+    width: 100%; /* Adjust width for input fields on pads */
+    max-width: 100%;
+  }
+  .footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%; /* Ensure full width */
+  }
+
+  /* Ensure footer content stays in one line */
+  .footer-content {
+    flex-wrap: nowrap; 
+    overflow-x: auto; 
+  }
+  .Abutton{
+    margin-bottom:10%;
+  }
+
+}
+
+

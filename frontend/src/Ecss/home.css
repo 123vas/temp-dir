@@ -1,0 +1,72 @@
+
+
+#images {
+    margin-bottom: 10px;
+}
+
+.row_1 {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.column-1 {
+    width: 100%;
+}
+
+.column-1 h4 {
+    font-family: 'open sans, sans-serif';
+    color: white;
+}
+
+.column-1 p {
+    color: beige;
+}
+
+.column-1 a {
+    color: white;
+}
+
+.about-website {
+    margin-top: 10px;
+    background-color: gray;
+}
+
+.about-website p {
+    font-family: 'open sans, sans-serif';
+    color: seashell;
+    display: inline;
+}
+
+.about-website p i {
+    color: beige;
+}
+
+.about-website h3 {
+    font-family: 'open sans, sans-serif';
+    color: seashell;
+    font-weight: 300;
+}
+
+
+/* Media queries for responsiveness */
+/* @media screen and (max-width: 600px) {
+    .navbar a, .navbar_top a {
+        float: none;
+        display: block;
+        text-align: left;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    #logo2 {
+        float: none;
+        width: auto;
+    }
+}
+
+#link:hover{
+    color: rgb(40, 40, 235);
+
+} */
+

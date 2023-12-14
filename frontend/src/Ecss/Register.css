@@ -1,0 +1,358 @@
+* {
+    margin: 0;
+    padding: 0;
+ 
+}
+
+html {
+  font-family: 'Nunito', sans-serif;
+  font-size: 18px; /* Adjust base font size */
+  color: #fff;
+}
+
+.body1 {
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; 
+  padding: 1rem 0.5rem;
+}
+
+.s {
+    border-radius:10px;
+    width: 450px;
+    height:500px ;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 1rem;
+    background-color: rgba(0,0,0,0.4);
+}
+
+
+.Rform {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-grow: 1;
+    padding-bottom: 1rem;
+}
+
+a, a:visited {
+    color: #fff;
+}
+
+.Rinput[type="text"],
+.Rinput[type="password"],
+.Rbutton,
+.Rtextarea {
+  font-family: 'Nunito', sans-serif;
+  font-size: 22px;
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+}
+
+.Rlabel,
+.Rbutton {
+  margin-top: 1rem;
+}
+
+.Rbutton {
+  padding: 0.5rem;
+}
+
+.instructions {
+    font-size: 0.75rem;
+    border-radius: 0.5rem;
+    background: #000;
+    color: #fff;
+    padding: 0.25rem;
+    position: relative;
+    bottom: -10px;
+}
+
+.instructions > svg {
+    margin-right: 0.25rem;
+}
+
+.offscreen {
+    position: absolute;
+    left: -9999px;
+}
+
+.hide {
+    display: none;
+}
+
+.valid {
+    color: limegreen;
+    margin-left: 0.25rem;
+}
+
+.invalid {
+    color: red;
+    margin-left: 0.25rem;
+}
+
+.errmsg {
+    background-color: lightpink;
+    color: firebrick;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.signIn {
+    display: flex;
+    color:black;
+    float: left;
+    padding-left: 5%;
+    padding-top:25px;
+    font-weight:bolder;
+}
+.signUp {
+  display: flex;
+  float: right;
+  padding-top:25px;
+  padding-right:5%;
+  color:black;
+  font-weight:bolder; 
+ /* float: right; */
+}
+.signIn a{
+    background-color: #2a2828;
+     height:fit-content;
+     width:fit-content;
+     border-radius:5px;
+}
+.signUp a{
+  background-color: #2a2828;
+   height:fit-content;
+   width:fit-content;
+   border-radius:5px;
+}
+
+.bodyR{
+    background-image:url("../Assets/IMG_20201030_120755-scaled.jpg");
+    height: 100vh;
+    width:100%;
+    background-size:cover;
+}
+.loginformR{
+    display: flex;
+   justify-content: center;
+   padding-top:0px; 
+   
+}
+/* Footer.css */
+
+.footer {
+    background-color: black;
+    color: #fff;
+    position: absolute;
+    width: 100%;
+    margin-top: 110px;
+  } 
+  
+  .footer-content {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding-left: 30px;
+  }
+  
+  .footer-section {
+    flex: 1 1 30%;
+    
+  }
+  .footer-section1 {
+    padding-right: 30px;
+    
+  }
+  .footer-section1 h3 {
+    font-size: 20px;
+    font-weight:1000px;
+    
+  }
+  
+  .footer-section h3 {
+    font-size: 20px;
+    font-weight:1000px;
+    
+  }
+  
+  .footer-section p {
+    font-size: 18px;
+    line-height: 1.6;
+  }
+  
+  @media screen and (max-width: 768px) {
+    html {
+      font-size: 16px; /* Adjust base font size for smaller screens */
+    }
+  
+    .s {
+      width: 90%; /* Adjust the width of the section */
+      height: auto;
+      margin: 20px auto;
+    }
+  
+    /* Adjust footer */
+    .footer-section {
+      flex: 1 1 100%;
+      margin-bottom: 20px;
+    }
+  
+    /* Center the form */
+    .loginformR{
+      padding-top: 0p x;/* Adjust top padding for the form */
+      display: flex;
+      padding-bottom:100px;
+      justify-content: center; /* Center horizontally */
+      align-items: center; /* Center vertically */
+      min-height: calc(100vh - 150px); /* Adjust the minimum height for centering */
+    }
+  
+    /* Adjust font sizes */
+    .footer-section h3 {
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+  
+    .footer-section p {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .signIn,
+    .signUp {
+      float: none;
+      display: block;
+      text-align: center;
+      padding-top:15px!important;
+      padding: 15px 5%;
+      font-size: 14px;
+    }
+  
+    .signIn {
+      padding-top: 15px;
+    } 
+  
+    /* .signUp {
+      padding-top: 15px;
+    }
+  
+    /* Other adjustments as needed */
+  }
+  
+  /* ... (previous styles) ... */
+
+/* Adjustments for tablets */
+@media screen and (max-width: 1024px) {
+  html {
+    font-size: 16px; /* Adjust base font size for tablets */
+  }
+
+  .s{
+    width: 80%; /* Adjust the width of the section */
+    max-width: 600px; /* Limit the maximum width */
+    height: auto;
+    margin: 20px auto;
+  }
+
+  /* Adjust footer */
+  .footer-section {
+    flex: 1 1 100%;
+    margin-bottom: 20px;
+  }
+  .loginformR {
+    padding-top: 30px; /* Adjust top padding for the form */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 150px); /* Adjust the minimum height for centering */
+  }
+  .footer-content {
+    flex-wrap: nowrap; /* Prevent wrapping of content */
+    overflow-x: auto; /* Add horizontal scrolling if necessary */
+  }
+  .footer-section1 {
+    padding-right: 30px;
+    
+  }
+
+  /* Adjust footer position */
+  .footer {
+    position: fixed;
+    bottom: 0;
+  }
+  /* Adjust font sizes */
+  .footer-section h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+
+  .footer-section p {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* Other tablet-specific adjustments */
+ 
+
+  .signIn,
+  .signUp {
+    padding-left: 10px;
+    font-size: 16px;
+  }
+}
+/* ... (previous styles) ... */
+
+/* Adjustments for laptops */
+@media screen and (min-width: 1025px)  and (min-height: 626px) {
+  html {
+    font-size: 20px; /* Adjust base font size for laptops */
+  }
+
+  .s {
+    width: 80%; /* Adjust the width of the section */
+    max-width: 800px; /* Limit the maximum width */
+    height: auto;
+    margin: 20px auto;
+  }
+.loginformR h1{
+  padding-left:45%;
+}
+  /* Center the form */
+  .loginformR {
+    padding-top: 70px;
+   /* Adjust top padding for the form */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 200px); /* Adjust the minimum height for centering */
+  }
+
+  /* Adjust footer position to stick at the bottom */
+  .footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%; /* Ensure full width */
+  }
+
+  /* Ensure footer content stays in one line */
+  .footer-content {
+    flex-wrap: nowrap; /* Prevent wrapping of content */
+    overflow-x: auto; /* Add horizontal scrolling if necessary */
+  }
+}
+

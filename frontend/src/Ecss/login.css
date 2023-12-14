@@ -1,0 +1,235 @@
+/* Reset styles */
+* {
+  margin: 0;
+  padding: 0;
+
+}
+.bodyL{
+  box-sizing: border-box;
+}
+.L{
+  height: 40px;
+  border-radius: 7px;
+}
+html {
+  font-family: 'Nunito', sans-serif;
+  font-size: 18px;
+  color: #fff;
+}
+.LH1{
+  display: flex;
+  justify-content: center;
+}
+.Lform {
+  flex-grow: 1;
+  border-radius: 10px;
+  width: 450px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.4);
+  margin: auto; /* Added to horizontally center the form */
+}
+
+a,
+a:visited {
+  color: #fff;
+}
+
+.Linput[type="text"],
+.Linput[type="password"],
+.Lbutton,
+.Ltextarea {
+  font-family: 'Nunito', sans-serif;
+  font-size: 22px;
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+}
+
+.Llabel,
+.Lbutton {
+  margin-top: 1rem;
+}
+
+.Lbutton {
+  padding: 0.5rem;
+}
+
+.instructions {
+  font-size: 0.75rem;
+  border-radius: 0.5rem;
+  background: #000;
+  color: #fff;
+  padding: 0.25rem;
+  position: relative;
+  bottom: -10px;
+}
+
+.instructions > svg {
+  margin-right: 0.25rem;
+}
+
+.offscreen {
+  position: absolute;
+  left: -9999px;
+}
+
+.hide {
+  display: none;
+}
+
+.valid {
+  color: limegreen;
+  margin-left: 0.25rem;
+}
+
+.invalid {
+  color: red;
+  margin-left: 0.25rem;
+}
+
+.errmsg {
+  background-color: lightpink;
+  color: firebrick;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.bodyL {
+  padding-top: 30px;
+  background-image: url("../Assets/img3.webp");
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+}
+
+/* Footer styles */
+.footer {
+  background-color: black;
+  color: #fff;
+  position: absolute;
+  width: 100%;
+  margin-top: 110px;
+}
+
+.footer-content {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding-left: 30px;
+}
+
+.footer-section {
+  flex: 1 1 30%;
+}
+
+.footer-section1 {
+  padding-right: 30px;
+}
+
+.footer-section1 h3,
+.footer-section h3 {
+  font-size: 20px;
+  font-weight: 1000;
+}
+
+.footer-section p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+/* Media queries for smaller screens */
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+ .bodyL{
+  padding-bottom:200px ;
+ }
+  .Lform {
+    width: 90%;
+    height: auto;
+    margin: 20px auto;
+  }
+
+  .footer-section {
+    flex: 1 1 100%;
+    margin-bottom: 20px;
+  }
+
+  .footer-section h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  .footer-section p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+}
+
+/* Media queries for tablets */
+@media screen and (max-width: 1024px) {
+  html {
+    font-size: 16px;
+  }
+  .bodyL{
+    padding-top:30%;
+  }
+  .Lform {
+    width: 80%;
+    max-width: 600px;
+    height: auto;
+    margin: 20px auto;
+  }
+
+  .footer-section {
+    flex: 1 1 100%;
+    margin-bottom: 20px;
+  }
+
+  .footer {
+    position: fixed;
+    bottom: 0;
+  }
+
+  .footer-section h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+
+  .footer-section p {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+}
+
+/* Media queries for laptops */
+@media screen and (min-width: 1025px) and (min-height: 626px) {
+  html {
+    font-size: 20px;
+  }
+.Lform {
+    width: 80%;
+    max-width: 800px;
+    height: auto;
+    margin: 20px auto;
+  }
+  .footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+
+  .footer-content {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+}
