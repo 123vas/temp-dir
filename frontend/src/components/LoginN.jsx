@@ -15,7 +15,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const USER_REGEX = /^[a-zA-Z0-9-_-\s]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
-function login() {
+function Login() {
   const userRef = useRef();
   const errRef = useRef();
 
@@ -223,4 +223,4 @@ function login() {
   );
 }
 
-export default login;
+export default Login;

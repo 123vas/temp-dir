@@ -23,7 +23,7 @@ function App() {
           <Route path="/Home" element={<Home />} />
           <Route path="/Register" element={<Register />} />
           <Route path="/User_register" element={<User_register />} />
-          {/* <Route path="/Login" element={<Login />} /> */}
+          <Route path="/Login" element={<Login />} />
           <Route path="/Adjustment" element={<Adjustment />} />
           <Route path='/Requestschedule' element={<RequestScheduleStatus />} />
           <Route path='/Inwardentry' element={<InwardForm />} />
