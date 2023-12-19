@@ -2,11 +2,15 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import "../components/app.css"
 import Fbottom from './Fbottom';
-
+import { useNavigate } from "react-router-dom";
 const UserRegister = () => {
+  const navigate = useNavigate();
+
   const [mines, setMines] = useState([]);
   const [selectedMine, setSelectedMine] = useState('');
-
+  function handleClick() {
+    navigate("/Login");
+  } 
   const [formData, setFormData] = useState({
     name: '',
     username: '',
@@ -56,14 +60,30 @@ const UserRegister = () => {
     const selectedMineDetails = mines.find((mine) => mine.mine_id === selectedMine);
   
     // Send registration data to the server
-    axios.post('http://localhost:5000/user-data/register', {
-      ...formData,
-      mine_id: selectedMine,
-      mine_name: selectedMineDetails?.mine_name || '',
-      mine_location: selectedMineDetails?.mine_location || '',
+    fetch('http://localhost:5000/user-data/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        ...formData,
+        mine_id: selectedMine,
+        mine_name: selectedMineDetails?.mine_name || '',
+        mine_location: selectedMineDetails?.mine_location || '',
+      }),
     })
-      .then((response) => console.log(response.data.message))
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then((data) =>{ 
+        handleClick();
+        console.log(data.message)
+      })
       .catch((error) => console.error('Error registering user:', error));
+    
   };
   
 

@@ -2,8 +2,17 @@ import React, { useState } from 'react';
 import "../components/app.css"
 import Header from "./Header";
 import Fbottom from "./Fbottom";
-
+import { useNavigate } from "react-router-dom";
 const OutwardEntryForm = () => {
+  const navigate = useNavigate();
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      alert("please login first") ;
+      navigate('/');
+      // Redirect to the login page if token is not present
+    }
+  }, [navigate]);
   const [success, setSuccess] = useState(false);
   const [formData, setFormData] = useState({
     request_id: '',

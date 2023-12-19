@@ -68,7 +68,9 @@ function Register() {
       body: JSON.stringify({ user,id,loc }),
     })
       .then(response => response.json())
-      .then(data => console.log(data))
+      .then(data => {
+       alert("Mine Registered Successfully")
+        })
       .catch(error => console.error('Error:', error));
        setUser("")
        setId("")

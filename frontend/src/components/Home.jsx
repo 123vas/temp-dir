@@ -1,12 +1,40 @@
 import React from 'react';
 import './css/bootstrap.css';
 import "../components/app.css"
-// import Header from './Header.jsx';
 import "../components/js/bootstrap.min.js"
 import Fbottom from './Fbottom.jsx';
 import { Link} from "react-router-dom";
-const Home = () => {
+import { useEffect} from "react";
+import { useNavigate } from 'react-router-dom';
 
+const Home = () => {
+  const navigate = useNavigate();
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      alert("please login first") ;
+      navigate('/'); // Redirect to the login page if token is not present
+    }
+  }, [navigate]);
+
+  const handleLogout = async () => {
+    try {
+      const response = await fetch('http://localhost:5000/logout', {
+        method: 'POST'
+      });
+      if (token) {
+        localStorage.removeItem('token'); // Clear token from local storage
+        navigate('/');
+      } else {
+        // Handle logout failure
+        console.error('Logout failed:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Logout failed:', error);
+      // Handle network errors or other issues
+    }
+  };
+  
   return (
     <div>
        <div className="headerH">
@@ -20,7 +48,7 @@ const Home = () => {
           <a href="#adjustment">Adjust</a>
           <a href="#in">Inward</a>
           <a href="#out">Outward</a>
-          <Link to="/">Log Out</Link>
+          <button onClick={handleLogout}>Logout</button>
         </div> 
       <div className='Hdiv'>
     <div>

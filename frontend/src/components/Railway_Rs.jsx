@@ -1,26 +1,19 @@
 import React, { useState } from 'react';
 import "../components/app.css"
-import Header from "./Header";
+
 import Fbottom from "./Fbottom";
-import { useNavigate } from 'react-router-dom';
-const InwardForm = () => {
-  const navigate = useNavigate();
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (!token) {
-      alert("please login first") ;
-      navigate('/'); // Redirect to the login page if token is not present
-    }
-  }, [navigate]);
+const RailwayForm = () => {
   const [success, setSuccess] = useState(false);
   const [formData, setFormData] = useState({
     request_id: '',
     received_quantity: '',
     mine_id: '',
-    mine_name: '',
-    mine_location: '',
-    time: '',
-    date: '',
+    Customer_id: '',
+    Customer_name: '',
+    Schedule_in_time: '',
+    Schedule_in_date: '',
+    Schedule_out_time: '',
+    Schedule_out_date: '',
   });
 
   const handleChange = (e) => {
@@ -36,7 +29,7 @@ const InwardForm = () => {
   const handleSubmit = (e) => {
       e.preventDefault();
   
-      fetch('http://localhost:5000/inward-entry', {
+      fetch('http://localhost:5000/Request-entry', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -56,7 +49,14 @@ const InwardForm = () => {
 
   return (
     < > 
-    <Header/>  
+   <div className="headerH">
+           <img src="./src/Assets/ashok.png" alt="Logo 1" className="logo" id="logo1" />
+          <h1 className="ministry_of_coal">Ministry of coal</h1>
+          <img src="./src/Assets/G20.png" alt="Logo 2" className="logo" id="logo2" /> 
+        </div>
+        <div className="navbar" style={{ display: 'inline-block', width: '100%' }}>
+          <img src="/src/Assets/actual_logo.png" alt="" style={{height:"50px",width:"100px",marginLeft:"5px",marginTop:"3px"}}/>
+        </div> 
     <div className='in-body'>
       {success ? (
         <section>
@@ -64,7 +64,7 @@ const InwardForm = () => {
         </section>
       ) : (
     <div className="data-form-container">
-      <h2>Data Form</h2>
+      <h2>Request Form</h2>
 
       <form onSubmit={handleSubmit} className='inward-form'>
       
@@ -80,41 +80,38 @@ const InwardForm = () => {
             <input type="number" name="received_quantity" value={formData.received_quantity} onChange={handleChange} />
           </label>
        
-
+          <label>
+            Customer ID:
+            <input type="text" name="Customer_id" value={formData.Customer_id} onChange={handleChange} />
+          </label>  
         
+          <label>
+            Customer Name:
+            <input type="text" name="Customer_name" value={formData.Customer_name} onChange={handleChange} />
+          </label>
+
           <label>
             Mine ID:
             <input type="text" name="mine_id" value={formData.mine_id} onChange={handleChange} />
+          </label>       
+          <label>
+          Schedule_in_Date:
+            <input type="date" name="Schedule_in_date" value={formData.Schedule_in_date} onChange={handleChange} />
           </label>
-        
-
         
           <label>
-            Mine Name:
-            <input type="text" name="mine_name" value={formData.mine_name} onChange={handleChange} />
+          Schedule_in_time:
+            <input type="time" name="Schedule_in_time" value={formData.Schedule_in_time} onChange={handleChange} />
           </label>
-        
-
         
           <label>
-            Mine Location:
-            <input type="text" name="mine_location" value={formData.mine_location} onChange={handleChange} />
+          Schedule_out_Date:
+            <input type="date" name="Schedule_out_date" value={formData.Schedule_out_date} onChange={handleChange} />
           </label>
-       
-
-        
           <label>
-            Time:
-            <input type="text" name="time" value={formData.time} onChange={handleChange} />
+          Schedule_out_time:
+            <input type="time" name="Schedule_out_time" value={formData.Schedule_out_time} onChange={handleChange} />
           </label>
-        
-
-        
-          <label>
-            Date:
-            <input type="text" name="date" value={formData.date} onChange={handleChange} />
-          </label>
-       
 
         <button type="submit">Submit</button>
       </form>
@@ -127,4 +124,4 @@ const InwardForm = () => {
   );
 };
 
-export default InwardForm;
+export default RailwayForm;

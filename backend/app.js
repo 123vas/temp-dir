@@ -5,11 +5,15 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const bcrypt=require("bcrypt")
 const saltRounds = 10;
+const cookieParser = require('cookie-parser');
+const jwt = require('jsonwebtoken');
 
 const app = express();
 const port = 5000;
 
 app.use(cors());
+app.use(cookieParser());
+app.use(express.json());
 app.use(bodyParser.json());
 // app.use("/send",send)
 
@@ -17,7 +21,7 @@ app.use(bodyParser.json());
 const connection = mysql.createConnection({
   host: '127.0.0.1',
   user: 'root',
-  password: 'Omkar1234',
+  password: 'vivekk07',
   database: 'coal_mine',
 });
 
@@ -143,6 +147,11 @@ app.post('/authenticate/login', (req, res) => {
         if (match) {
           // If login is successful, you can send additional data or a success message
           const { mineId } = results[0];
+          //create token
+          const token = jwt.sign({mineId}, "our-jsonwebtoken-secret-key", {expiresIn:'1d'});
+          console.log('Generated token:', token);
+          res.cookie('token', token, { httpOnly: true /*, secure: true (if served over HTTPS)*/ });
+          res.json({ token }); 
           return res.status(200).json({ success: true, message: mineId });
         } else {
           // If login fails, return an error message
@@ -203,7 +212,30 @@ app.get('/fetch-data/mines', (req, res) => {
   });
 });
 
+//railway requwst
+app.post('/Request-entry', (req, res) => {
+  const {
+    request_id,
+    received_quantity,
+    mine_id,
+    Customer_id,
+    Customer_name,
+    Schedule_in_time,
+    Schedule_in_date,
+    Schedule_out_time,
+    Schedule_out_date,
+  } = req.body;
 
+  const query = 'INSERT INTO request_scheduled (Request_ID,mine_id,Customer_ID,Customer_Name,Quantity,Scheduled_In_Date,Scheduled_In_Time,Scheduled_Out_date,Scheduled_Out_time) VALUES (?, ?,?, ?, ?, ?, ?, ?,?) ';
+  connection.query(query, [request_id,mine_id,Customer_id,Customer_name,received_quantity,Schedule_in_date,Schedule_in_time,Schedule_out_date,Schedule_out_time], (err, results) => {
+    if (err) {
+      console.error('Error inserting data into the database:', err);
+      res.status(500).json({ error: 'Internal Server Error' });
+    } else {
+      res.json({ success: true });
+    }
+  });
+});
 
 //route to send request scheduled data for all mine
 // request-scheduled table
@@ -273,49 +305,77 @@ app.listen(port, () => {
 });
 
 
-//jwt code
-const secretKey = 'your_secret_key';
+// jwt code
+// const secretKey = 'your_secret_key';
 
-// Middleware to verify JWT
-const verifyToken = (req, res, next) => {
-  const token = req.headers.authorization;
+// // Middleware to verify JWT
+// const verifyToken = (req, res, next) => {
+//   const token = req.headers.authorization;
 
-  if (!token) {
-    return res.status(403).json({ success: false, message: 'No token provided.' });
-  }
+//   if (!token) {
+//     return res.status(403).json({ success: false, message: 'No token provided.' });
+//   }
 
-  jwt.verify(token, secretKey, (err, decoded) => {
-    if (err) {
-      return res.status(500).json({ success: false, message: 'Failed to authenticate token.' });
-    }
-    req.userId = decoded.id;
-    next();
-  });
-};
+//   jwt.verify(token, secretKey, (err, decoded) => {
+//     if (err) {
+//       return res.status(500).json({ success: false, message: 'Failed to authenticate token.' });
+//     }
+//     req.userId = decoded.id;
+//     next();
+//   });
+// };
 
 // API endpoint for user login
-app.post('/loginjwt', (req, res) => {
-  const { username, password } = req.body;
+// app.post('/loginjwt', (req, res) => {
+//   const { username, password } = req.body;
 
-  // Replace with your actual database table and column names
-  const query = `SELECT * FROM user_master WHERE username = ? AND Password = ?`;
+//   // Replace with your actual database table and column names
+//   const query = `SELECT * FROM user_master WHERE username = ? AND Password = ?`;
 
-  db.query(query, [username, password], (err, results) => {
-    if (err) throw err;
+//   db.query(query, [username, password], (err, results) => {
+//     if (err) throw err;
 
-    if (results.length > 0) {
-      const user = results[0];
-      const token = jwt.sign({ id: user.id, username: user.username }, secretKey, {
-        expiresIn: 10, // Token expires in 24 hours
-      });
-      res.json({ success: true, message: 'Login successful', token });
-    } else {
-      res.json({ success: false, message: 'Invalid username or password' });
-    }
-  });
+//     if (results.length > 0) {
+//       const user = results[0];
+//       const token = jwt.sign({ id: user.id, username: user.username }, secretKey, {
+//         expiresIn: 10, // Token expires in 24 hours
+//       });
+//       res.json({ success: true, message: 'Login successful', token });
+//     } else {
+//       res.json({ success: false, message: 'Invalid username or password' });
+//     }
+//   });
+// });
+app.post('/logout', (req, res) => {
+  // Clear the 'token' cookie
+
+  res.clearCookie('token');
+  console.log('token',token);
+  res.send('Logged out successfully');
 });
 
-// API endpoint for a protected resource
-app.get('/protected', verifyToken, (req, res) => {
-  res.json({ success: true, message: 'This is a protected resource.' });
-});
+
+// const verifyUser = (req, res, next) => {
+//   const token = req.cookies.token;
+//   if(!token){
+//     return res.json({Message: 'we need token please provide it.'})
+//   }else{
+//     jwt.verify(token,"our-jsonwebtoken-secret-key", (err, decoded) =>{
+//       if(err){
+//         return res.json({Message: 'Authentication Error.'})
+//       }else{
+//         req.name = decoded.name;
+//         next();
+//       }
+//     })
+//   }
+// }
+
+// app.get('/', verifyUser,(req, res) => {
+//   return res.json({Status: 'Success', name: req.name})
+// })
+
+// // API endpoint for a protected resource
+// app.get('/protected', verifyToken, (req, res) => {
+//   res.json({ success: true, message: 'This is a protected resource.' });
+// });

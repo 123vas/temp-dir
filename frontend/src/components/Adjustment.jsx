@@ -6,11 +6,19 @@ import { useMineId } from "../api/context";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faTimes, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import "../components/app.css";
-
+import { useNavigate } from "react-router-dom";
 const AMT_REGEX = /^[0-9]{1,23}$/;
 const RMK_REGEX = /^[a-zA-Z][a-zA-Z0-9-\s]{3,}$/;
 
 function Adjustment() {
+  const navigate = useNavigate();
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      alert("please login first") ;
+      navigate('/'); // Redirect to the login page if token is not present
+    }
+  }, [navigate]);
   const userRef = useRef();
 
   const [data, setData] = useState([]);

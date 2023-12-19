@@ -2,10 +2,18 @@ import React from "react";
 import '../components/app.css'
 import Header from "./Header";
 import Fbottom from "./Fbottom";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect} from "react";
 import { useMineId } from "../api/context";
-
+import { useNavigate } from "react-router-dom";
 function RequestScheduleStatus() {
+  const navigate = useNavigate();
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      alert("please login first") ;
+      navigate('/'); // Redirect to the login page if token is not present
+    }
+  }, [navigate]);
 
     const [data, setData] = useState([]);
     const [selectedMineId, setSelectedMineId] = useState('');

@@ -71,6 +71,7 @@ const PopUp = ({ isOpen, closeModal }) => {
       console.log(data);
        
       if (data.success) {
+        alert("Login Successfull")
         handleClick();
       } else {
         alert("Inavlid credentials");

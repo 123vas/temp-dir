@@ -73,7 +73,12 @@ function Login() {
         .then(data => {
           if (data.success) {
             setMineIdValue(data.mineId);
+            alert("Login Successfull")
+            localStorage.setItem('token', data.token);
+            const token = localStorage.getItem('token');
+            if(token){
             handleClick();
+            }
           } else {
             // Handle unsuccessful login
             alert("Invalid credentials");

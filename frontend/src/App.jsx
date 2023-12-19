@@ -8,9 +8,9 @@ import RequestScheduleStatus from "../src/components/Request_schedule"
 import InwardForm from './components/inward_entry'
 import OutwardEntryForm from './components/outward_entry'
 import React from 'react'
-// import Landing from "./components/Landing"
+import Landing from "./components/Landing"
 import { MineIdProvider } from './api/context'
-// import Jwtlogin from "./components/jwtlogin"
+import RailwayForm from "./components/railway_Rs"
 function App() {
 
 
@@ -18,7 +18,6 @@ function App() {
     <BrowserRouter>
       <MineIdProvider>
         <Routes>
-          {/* <Route path="/Jwtlogin" element={<Jwtlogin />} /> */}
           <Route path='/' element={<Landing />} />
           <Route path="/Home" element={<Home />} />
           <Route path="/Register" element={<Register />} />
@@ -28,7 +27,7 @@ function App() {
           <Route path='/Requestschedule' element={<RequestScheduleStatus />} />
           <Route path='/Inwardentry' element={<InwardForm />} />
           <Route path='/Outwardentry' element={<OutwardEntryForm />} />
-
+<Route path="/Railwayform" element={<RailwayForm/>}/>
         </Routes>
       </MineIdProvider>
 
